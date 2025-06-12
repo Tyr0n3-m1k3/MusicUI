@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+
+.player-container {
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass-box {
+  background: rgba(128, 0, 128, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.album-cover {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.song-info {
+  margin-bottom: 20px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2em;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.controls button:hover {
+  transform: scale(1.2);
+} 
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
