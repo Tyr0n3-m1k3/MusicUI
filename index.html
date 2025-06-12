@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }.player-container {
+  backdrop-filter: blur(15px);
+  background: rgba(128, 0, 128, 0.2); /* Purple tint */
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.song-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+.artist-name {
+  font-size: 1.2em;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.controls button {
+  background: white;
+  border: none;
+  color: black;
+  font-size: 1.2em;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.controls button:hover {
+  transform: scale(1.1);
+}
+
+  </style>
+</head>
+<body>
+  <div class="player-container">
+    <div class="song-title" id="song-title">Cold</div>
+    <div class="artist-name" id="artist-name">Maroon 5</div><audio id="audio" src="song.mp3"></audio>
+
+<div class="controls">
+  <button onclick="prevSong()">&#9664;</button>
+  <button onclick="togglePlayPause()" id="play-pause">&#9658;</button>
+  <button onclick="nextSong()">&#9654;</button>
+</div>
+
+  </div>  <script>
+    const audio = document.getElementById('audio');
+    const playPauseButton = document.getElementById('play-pause');
+
+    function togglePlayPause() {
+      if (audio.paused) {
+        audio.play();
+        playPauseButton.innerHTML = '||';
+      } else {
+        audio.pause();
+        playPauseButton.innerHTML = '&#9658;';
+      }
+    }
+
+    function prevSong() {
+      audio.currentTime = 0;
+    }
+
+    function nextSong() {
+      audio.currentTime = audio.duration;
+    }
+  </script></body>
+</html>
