@@ -16,43 +16,43 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             title: "Cold Water",
             artist: "Major Lazer, Justin Bieber, MO",
-            audioSrc: "cold-water.mp3",
-            albumArt: "cold-water.png",
+            audioSrc: "assets/audio/cold-water.mp3",
+            albumArt: "assets/covers/cold-water.png",
             color: "purple"
         },
         {
             title: "See You Again",
             artist: "Tyler, the Creator, Kali Uchis",
-            audioSrc: "see-you-again.mp3",
-            albumArt: "see-you-again.png",
+            audioSrc: "assets/audio/see-you-again.mp3",
+            albumArt: "assets/covers/see-you-again.png",
             color: "orange"
         },
         {
             title: "CN Tower",
             artist: "PARTYNEXTDOOR, Drake",
-            audioSrc: "cn-tower.mp3",
-            albumArt: "cn-tower.png",
+            audioSrc: "assets/audio/cn-tower.mp3",
+            albumArt: "assets/covers/cn-tower.png",
             color: "red"
         },
         {
             title: "Nokia",
             artist: "Drake, PARTYNEXTDOOR",
-            audioSrc: "Nokia.mp3",
-            albumArt: "Nokia.png",
+            audioSrc: "assets/audio/Nokia.mp3",
+            albumArt: "assets/covers/Nokia.png",
             color: "dark-green"  // Changed from green
         }, 
         {
             title: "Hello?",
             artist: "Clairo, Rejjie Snow",
-            audioSrc: "hello.mp3",
-            albumArt: "hello.png",
+            audioSrc: "assets/audio/hello.mp3",
+            albumArt: "assets/covers/hello.png",
             color: "green"  // Changed from luminous-green
         },
         {
             title: "Hello Miss Johnson",
             artist: "Jack Harlow",
-            audioSrc: "hello-miss-johnson.mp3",
-            albumArt: "hello-miss-johnson.png",
+            audioSrc: "assets/audio/hello-miss-johnson.mp3",
+            albumArt: "assets/covers/hello-miss-johnson.png",
             color: "dark-maroon"
         }
     ];
