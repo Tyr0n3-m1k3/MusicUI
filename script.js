@@ -13,28 +13,35 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Song playlist
     const playlist = [
-        {
-            title: "COLD WATER",
-            artist: "Major Lazer, Justin Bieber, MO",
-            audioSrc: "cold-water.mp3", // Replace with your file
-            albumArt: "cold-water.png", // Replace with your file
-            color: "purple"
-        },
-        {
-            title: "See You Again",
-            artist: "Tyler, The Creator,Kali Uchis",
-            audioSrc: "see-you-again.mp3", // Replace with your file
-            albumArt: "see-you-again.png", // Replace with your file
-            color: "orange"
-        },
-        {
-            title: "CN Tower",
-            artist: "PARTYNEXTDOOR, Drake",
-            audioSrc: "cn-tower.mp3", // Replace with your file
-            albumArt: "cn-tower.png", // Replace with your file
-            color: "red"
-        }
-    ];
+    {
+        title: "Cold Water",
+        artist: "Major Lazer, Justin Bieber, MO",
+        audioSrc: "cold-water.mp3",
+        albumArt: "cold-water.png",
+        color: "purple"
+    },
+    {
+        title: "See You Again",
+        artist: "Tyler, the Creator, Kali Uchis",
+        audioSrc: "see-you-again.mp3",
+        albumArt: "see-you-again.png",
+        color: "orange"
+    },
+    {
+        title: "CN Tower",
+        artist: "PARTYNEXTDOOR, Drake",
+        audioSrc: "cn-tower.mp3",
+        albumArt: "cn-tower.png",
+        color: "red"
+    },
+    {
+        title: "Nokia",
+        artist: "Drake, PARTYNEXTDOOR",
+        audioSrc: "nokia.mp3",  // Replace with your file
+        albumArt: "nokia.png",  // Replace with your file
+        color: "green"          // This will trigger the new green background
+    }
+];
     
     let currentSongIndex = 0;
     let isPlaying = false;
