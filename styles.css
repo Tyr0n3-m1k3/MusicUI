@@ -152,6 +152,19 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Replay Button Specific Styles */
+#replay-btn {
+    margin-right: -5px;
+    font-size: 18px;
+    width: 45px;
+    height: 45px;
+}
+
+#replay-btn:hover i {
+    transform: rotate(360deg);
+    transition: transform 0.5s ease;
+}
+
 .control-btn:hover {
     background: rgba(255, 255, 255, 0.2);
 }
@@ -219,5 +232,13 @@ body {
     
     .song-title {
         font-size: 22px;
+    }
+
+    .controls {
+        gap: 10px;
+    }
+
+    #replay-btn {
+        margin-right:8px;
     }
 }
