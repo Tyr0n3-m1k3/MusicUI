@@ -37,11 +37,11 @@ body {
     background: linear-gradient(135deg, #d00000, #dc2f02);
 }
 
-.background.green {
+.background.dark-green {
     background: linear-gradient(135deg, #1b4332, #2d6a4f);
 }
 
-.background.luminous-green {
+.background.green {
     background: linear-gradient(135deg, #00ff7f, #00e676);
 }
 
@@ -179,11 +179,11 @@ body {
     color: #d00000;
 }
 
-.play-btn.green {
+.play-btn.dark-green {
     color: #1b4332;
 }
 
-.play-btn.luminous-green {
+.play-btn.green {
     color: #00b248;
     box-shadow: 0 0 15px rgba(0, 255, 127, 0.3);
 }
@@ -192,13 +192,32 @@ body {
     color: #5e1224;
 }
 
-/* Special effects for luminous green */
-.player-glass.luminous-green {
+/* Special effects for green theme */
+.player-glass.green {
     box-shadow: 0 0 20px rgba(0, 255, 127, 0.3);
 }
 
-/* Enhanced text visibility for dark maroon */
+/* Enhanced text visibility for dark themes */
 .dark-maroon .song-title,
-.dark-maroon .song-artist {
+.dark-maroon .song-artist,
+.dark-green .song-title,
+.dark-green .song-artist {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .player-container {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .album-art {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .song-title {
+        font-size: 22px;
+    }
 }
