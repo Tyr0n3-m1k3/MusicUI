@@ -35,6 +35,10 @@ body {
     background: linear-gradient(135deg, #d00000, #dc2f02);
 }
 
+.background.green {
+    background: linear-gradient(135deg, #1b4332, #2d6a4f);
+}
+
 .player-container {
     width: 90%;
     max-width: 350px;
@@ -161,4 +165,7 @@ body {
 }
 .play-btn.red {
     color: #d00000;
+}
+.play-btn.green {
+    color: #1b4332;
 }
