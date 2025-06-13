@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
+    transition: background 0.5s ease;
 }
 
 body {
@@ -20,8 +21,18 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #5a189a, #9d4edd); /* Dark purple to mid-purple */
     z-index: -1;
+}
+
+/* Background colors for different songs */
+.background.purple {
+    background: linear-gradient(135deg, #5a189a, #9d4edd);
+}
+.background.orange {
+    background: linear-gradient(135deg, #ff6d00, #ff9e00);
+}
+.background.red {
+    background: linear-gradient(135deg, #d00000, #dc2f02);
 }
 
 .player-container {
@@ -36,7 +47,7 @@ body {
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 25px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.18);
     color: white;
 }
@@ -64,7 +75,7 @@ body {
     margin: 0 auto 25px;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .album-art img {
@@ -93,7 +104,7 @@ body {
     left: 0;
     height: 100%;
     width: var(--progress, 0%);
-    background: #e0aaff; /* Light purple progress bar */
+    background: white;
     border-radius: 3px;
     transition: width 0.1s linear;
 }
@@ -133,12 +144,21 @@ body {
 
 .play-btn {
     background: white;
-    color: #5a189a; /* Dark purple for play button */
     width: 60px;
     height: 60px;
 }
 
 .play-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(224, 170, 255, 0.6); /* Purple glow */
+}
+
+/* Color-specific play buttons */
+.play-btn.purple {
+    color: #5a189a;
+}
+.play-btn.orange {
+    color: #ff6d00;
+}
+.play-btn.red {
+    color: #d00000;
 }
