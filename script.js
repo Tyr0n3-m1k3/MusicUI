@@ -40,6 +40,20 @@ document.addEventListener('DOMContentLoaded', function() {
         audioSrc: "Nokia.mp3",  // Replace with your file
         albumArt: "Nokia.png",  // Replace with your file
         color: "green"          // This will trigger the new green background
+    }, 
+    {
+        title: "Hello?",
+        artist: "Clairo, Rejjie Snow",
+        audioSrc: "hello.mp3",
+        albumArt: "hello.png",
+        color: "bright green"
+    },
+    {
+        title: "Hello Miss Johnson",
+        artist: "Jack Harlow",
+        audioSrc: "hello-miss-johnson.mp3",  // Replace with your file
+        albumArt: "hello-miss-johnson.png",  // Replace with your file
+        color: "maroon"          // This will trigger the new maroon background
     }
 ];
     
