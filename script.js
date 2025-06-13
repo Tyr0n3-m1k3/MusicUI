@@ -13,49 +13,49 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Song playlist
     const playlist = [
-    {
-        title: "Cold Water",
-        artist: "Major Lazer, Justin Bieber, MO",
-        audioSrc: "cold-water.mp3",
-        albumArt: "cold-water.png",
-        color: "purple"
-    },
-    {
-        title: "See You Again",
-        artist: "Tyler, the Creator, Kali Uchis",
-        audioSrc: "see-you-again.mp3",
-        albumArt: "see-you-again.png",
-        color: "orange"
-    },
-    {
-        title: "CN Tower",
-        artist: "PARTYNEXTDOOR, Drake",
-        audioSrc: "cn-tower.mp3",
-        albumArt: "cn-tower.png",
-        color: "red"
-    },
-    {
-        title: "Nokia",
-        artist: "Drake, PARTYNEXTDOOR",
-        audioSrc: "Nokia.mp3",  // Replace with your file
-        albumArt: "Nokia.png",  // Replace with your file
-        color: "green"          // This will trigger the new green background
-    }, 
-    {
-        title: "Hello?",
-        artist: "Clairo, Rejjie Snow",
-        audioSrc: "hello.mp3",
-        albumArt: "hello.png",
-        color: "bright green"
-    },
-    {
-        title: "Hello Miss Johnson",
-        artist: "Jack Harlow",
-        audioSrc: "hello-miss-johnson.mp3",  // Replace with your file
-        albumArt: "hello-miss-johnson.png",  // Replace with your file
-        color: "maroon"          // This will trigger the new maroon background
-    }
-];
+        {
+            title: "Cold Water",
+            artist: "Major Lazer, Justin Bieber, MO",
+            audioSrc: "cold-water.mp3",
+            albumArt: "cold-water.png",
+            color: "purple"
+        },
+        {
+            title: "See You Again",
+            artist: "Tyler, the Creator, Kali Uchis",
+            audioSrc: "see-you-again.mp3",
+            albumArt: "see-you-again.png",
+            color: "orange"
+        },
+        {
+            title: "CN Tower",
+            artist: "PARTYNEXTDOOR, Drake",
+            audioSrc: "cn-tower.mp3",
+            albumArt: "cn-tower.png",
+            color: "red"
+        },
+        {
+            title: "Nokia",
+            artist: "Drake, PARTYNEXTDOOR",
+            audioSrc: "Nokia.mp3",
+            albumArt: "Nokia.png",
+            color: "green"
+        }, 
+        {
+            title: "Hello?",
+            artist: "Clairo, Rejjie Snow",
+            audioSrc: "hello.mp3",
+            albumArt: "hello.png",
+            color: "luminous-green"  // Changed from "bright green"
+        },
+        {
+            title: "Hello Miss Johnson",
+            artist: "Jack Harlow",
+            audioSrc: "hello-miss-johnson.mp3",
+            albumArt: "hello-miss-johnson.png",
+            color: "dark-maroon"  // Changed from "maroon"
+        }
+    ];
     
     let currentSongIndex = 0;
     let isPlaying = false;
@@ -69,12 +69,12 @@ document.addEventListener('DOMContentLoaded', function() {
         albumArtEl.src = song.albumArt;
         audio.src = song.audioSrc;
         
-        // Update background color
+        // Update background color and play button
         backgroundEl.className = 'background ' + song.color;
         playBtn.className = 'control-btn play-btn ' + song.color;
         
         if (isPlaying) {
-            audio.play();
+            audio.play().catch(e => console.log("Auto-play prevented:", e));
             playBtn.innerHTML = '<i class="fas fa-pause"></i>';
         }
     }
@@ -85,7 +85,12 @@ document.addEventListener('DOMContentLoaded', function() {
             audio.pause();
             playBtn.innerHTML = '<i class="fas fa-play"></i>';
         } else {
-            audio.play();
+            audio.play().catch(e => {
+                console.log("Playback prevented:", e);
+                // Fallback: User interaction was needed, so we'll set isPlaying to true
+                isPlaying = true;
+                togglePlay();
+            });
             playBtn.innerHTML = '<i class="fas fa-pause"></i>';
         }
         isPlaying = !isPlaying;
@@ -124,12 +129,18 @@ document.addEventListener('DOMContentLoaded', function() {
     function nextSong() {
         currentSongIndex = (currentSongIndex + 1) % playlist.length;
         loadSong(currentSongIndex);
+        if (isPlaying) {
+            audio.play().catch(e => console.log("Auto-play prevented:", e));
+        }
     }
     
     // Previous song
     function prevSong() {
         currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
         loadSong(currentSongIndex);
+        if (isPlaying) {
+            audio.play().catch(e => console.log("Auto-play prevented:", e));
+        }
     }
     
     // Event listeners
@@ -150,4 +161,15 @@ document.addEventListener('DOMContentLoaded', function() {
         if (durationSeconds < 10) durationSeconds = `0${durationSeconds}`;
         durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
     });
+
+    // Handle potential autoplay restrictions
+    document.body.addEventListener('click', function initialPlay() {
+        audio.play().then(() => {
+            // If autoplay works, pause immediately and remove listener
+            audio.pause();
+            document.body.removeEventListener('click', initialPlay);
+        }).catch(e => {
+            console.log("Initial autoplay prevented, waiting for user interaction");
+        });
+    }, { once: true });
 });
