@@ -25,8 +25,8 @@ body {
 }
 
 /* Background Color Themes */
-.background.purple {
-    background: linear-gradient(135deg, #5a189a, #9d4edd);
+.background.blue {
+    background: linear-gradient(135deg, #1a3c8f, #4d7cff);
 }
 
 .background.orange {
@@ -167,8 +167,8 @@ body {
 }
 
 /* Color-specific play buttons */
-.play-btn.purple {
-    color: #5a189a;
+.play-btn.blue {
+    color: #1a3c8f;
 }
 
 .play-btn.orange {
