@@ -61,8 +61,8 @@ Extend the playlist array in `script.js`:
 {
   title: "Song Name",
   artist: "Artist Name",
-  audioSrc: "file.mp3",
-  albumArt: "image.png",
+  audioSrc: "assets/audio/file.mp3",
+  albumArt: "assets/covers/image.png",
   color: "theme-color" // Must match CSS class
 }
 ```
