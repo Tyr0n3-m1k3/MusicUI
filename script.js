@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             title: "See You Again",
-            artist: "Tyler, the Creator, Kali Uchis",
+            artist: "Tyler, The Creator, Kali Uchis",
             audioSrc: "assets/audio/see-you-again.mp3",
             albumArt: "assets/covers/see-you-again.png",
             color: "orange"
