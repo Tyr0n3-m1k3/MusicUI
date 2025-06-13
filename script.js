@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Major Lazer, Justin Bieber, MO",
             audioSrc: "assets/audio/cold-water.mp3",
             albumArt: "assets/covers/cold-water.png",
-            color: "purple"
+            color: "blue"
         },
         {
             title: "See You Again",
