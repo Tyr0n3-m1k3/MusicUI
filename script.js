@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // DOM Elements
     const audio = document.getElementById('audio');
-    const replayBtn = document.getElementById('replay-btn);
     const playBtn = document.getElementById('play-btn');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
+    const replayBtn = document.getElementById('replay-btn');
     const progressBar = document.querySelector('.progress-bar');
     const currentTimeEl = document.querySelector('.current-time');
     const durationEl = document.querySelector('.duration');
@@ -11,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const songArtistEl = document.querySelector('.song-artist');
     const albumArtEl = document.getElementById('album-art');
     const backgroundEl = document.querySelector('.background');
-    
-    /// Updated playlist with new color names
+
+    // Playlist with 6 songs
     const playlist = [
         {
             title: "Cold Water",
@@ -23,45 +24,45 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             title: "See You Again",
-            artist: "Tyler, The Creator, Kali Uchis",
-            audioSrc: "assets/audio/see-you-again.mp3",
-            albumArt: "assets/covers/see-you-again.png",
+            artist: "Tyler, the Creator, Kali Uchis",
+            audioSrc: "see-you-again.mp3",
+            albumArt: "see-you-again.png",
             color: "orange"
         },
         {
             title: "CN Tower",
             artist: "PARTYNEXTDOOR, Drake",
-            audioSrc: "assets/audio/cn-tower.mp3",
-            albumArt: "assets/covers/cn-tower.png",
+            audioSrc: "cn-tower.mp3",
+            albumArt: "cn-tower.png",
             color: "red"
         },
         {
             title: "Nokia",
             artist: "Drake, PARTYNEXTDOOR",
-            audioSrc: "assets/audio/Nokia.mp3",
-            albumArt: "assets/covers/Nokia.png",
-            color: "dark-green"  // Changed from green
-        }, 
+            audioSrc: "Nokia.mp3",
+            albumArt: "Nokia.png",
+            color: "dark-green"
+        },
         {
             title: "Hello?",
             artist: "Clairo, Rejjie Snow",
-            audioSrc: "assets/audio/hello.mp3",
-            albumArt: "assets/covers/hello.png",
-            color: "green"  // Changed from luminous-green
+            audioSrc: "hello.mp3",
+            albumArt: "hello.png",
+            color: "green"
         },
         {
             title: "Hello Miss Johnson",
             artist: "Jack Harlow",
-            audioSrc: "assets/audio/hello-miss-johnson.mp3",
-            albumArt: "assets/covers/hello-miss-johnson.png",
+            audioSrc: "hello-miss-johnson.mp3",
+            albumArt: "hello-miss-johnson.png",
             color: "dark-maroon"
         }
     ];
-    
+
     let currentSongIndex = 0;
     let isPlaying = false;
-    
-    // Load song
+
+    // Load song function
     function loadSong(index) {
         const song = playlist[index];
         
@@ -70,17 +71,17 @@ document.addEventListener('DOMContentLoaded', function() {
         albumArtEl.src = song.albumArt;
         audio.src = song.audioSrc;
         
-        // Update background color and play button
+        // Update background and play button color
         backgroundEl.className = 'background ' + song.color;
         playBtn.className = 'control-btn play-btn ' + song.color;
         
+        // Auto-play if already playing
         if (isPlaying) {
             audio.play().catch(e => console.log("Auto-play prevented:", e));
-            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
         }
     }
-    
-    // Play/Pause
+
+    // Play/Pause toggle
     function togglePlay() {
         if (isPlaying) {
             audio.pause();
@@ -88,15 +89,30 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             audio.play().catch(e => {
                 console.log("Playback prevented:", e);
-                // Fallback: User interaction was needed, so we'll set isPlaying to true
-                isPlaying = true;
+                isPlaying = true; // Ensure state sync
                 togglePlay();
             });
             playBtn.innerHTML = '<i class="fas fa-pause"></i>';
         }
         isPlaying = !isPlaying;
     }
-    
+
+    // Replay current song
+    function replaySong() {
+        audio.currentTime = 0;
+        
+        // Visual feedback
+        replayBtn.innerHTML = '<i class="fas fa-redo" style="color: #00ff7f;"></i>';
+        setTimeout(() => {
+            replayBtn.innerHTML = '<i class="fas fa-redo"></i>';
+        }, 300);
+        
+        // Auto-play if paused
+        if (!isPlaying) {
+            togglePlay();
+        }
+    }
+
     // Update progress bar
     function updateProgress(e) {
         const { duration, currentTime } = e.srcElement;
@@ -117,74 +133,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
     }
-    
-    // Set progress bar when clicked
+
+    // Seek functionality
     function setProgress(e) {
         const width = this.clientWidth;
         const clickX = e.offsetX;
         const duration = audio.duration;
         audio.currentTime = (clickX / width) * duration;
     }
-    
-    // Next song
+
+    // Change song functions
     function nextSong() {
         currentSongIndex = (currentSongIndex + 1) % playlist.length;
         loadSong(currentSongIndex);
-        if (isPlaying) {
-            audio.play().catch(e => console.log("Auto-play prevented:", e));
-        }
+        if (isPlaying) audio.play().catch(e => console.log("Auto-play prevented:", e));
     }
-    
-    // Previous song
+
     function prevSong() {
         currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
         loadSong(currentSongIndex);
-        if (isPlaying) {
-            audio.play().catch(e => console.log("Auto-play prevented:", e));
-        }
+        if (isPlaying) audio.play().catch(e => console.log("Auto-play prevented:", e));
     }
 
-    // Replay song
-    function replaySong() {
-        audio.currentTime = 0;
-        if (isPlaying) {
-            togglePlay();
-        }
-        // Add visual feedback
-        replayBtn.innerHTML = '<i class="fas fa-redo" style="color:#00ff7f;"></i>';
-        setTimeout(() => {
-            replayBtn.innerHTML = '<i class="fas fa-redo"></i>';
-        },300);
-    }
-    
     // Event listeners
-    replayBtn.addEventListener('click',replaySong);
     playBtn.addEventListener('click', togglePlay);
     prevBtn.addEventListener('click', prevSong);
     nextBtn.addEventListener('click', nextSong);
+    replayBtn.addEventListener('click', replaySong);
     audio.addEventListener('timeupdate', updateProgress);
     audio.addEventListener('ended', nextSong);
     progressBar.addEventListener('click', setProgress);
-    
-    // Initialize
-    loadSong(currentSongIndex);
-    
-    // Initialize duration when metadata is loaded
-    audio.addEventListener('loadedmetadata', () => {
-        const durationMinutes = Math.floor(audio.duration / 60);
-        let durationSeconds = Math.floor(audio.duration % 60);
-        if (durationSeconds < 10) durationSeconds = `0${durationSeconds}`;
-        durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
-    });
 
-    // Handle potential autoplay restrictions
-    document.body.addEventListener('click', function initialPlay() {
+    // Initialize player
+    loadSong(currentSongIndex);
+
+    // Handle mobile autoplay restrictions
+    document.body.addEventListener('click', function initPlay() {
         audio.play().then(() => {
-            // If autoplay works, pause immediately and remove listener
             audio.pause();
-            document.body.removeEventListener('click', initialPlay);
-        }).catch(e => {
-            console.log("Initial autoplay prevented, waiting for user interaction");
-        });
+            document.body.removeEventListener('click', initPlay);
+        }).catch(e => console.log("Initial play interaction needed"));
     }, { once: true });
 });
