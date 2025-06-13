@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "COLD WATER",
             artist: "Major Lazer, Justin Bieber, MO",
             audioSrc: "cold-water.mp3", // Replace with your file
-            albumArt: "cold-water.jpg", // Replace with your file
+            albumArt: "cold-water.png", // Replace with your file
             color: "purple"
         },
         {
