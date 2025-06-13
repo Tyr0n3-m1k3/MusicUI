@@ -84,7 +84,7 @@ MIT License - Free for personal and commercial use
 
 ## 🙏 Credits
 
-- UI Design by [Your Name]
+- UI Design by Tay
 - Font Awesome icons
 - Modern CSS techniques
 
