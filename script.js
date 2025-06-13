@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const audio = document.getElementById('audio');
+    const replayBtn = document.getElementById('replay-btn);
     const playBtn = document.getElementById('play-btn');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
@@ -142,8 +143,22 @@ document.addEventListener('DOMContentLoaded', function() {
             audio.play().catch(e => console.log("Auto-play prevented:", e));
         }
     }
+
+    // Replay song
+    function replaySong() {
+        audio.currentTime = 0;
+        if (isPlaying) {
+            togglePlay();
+        }
+        // Add visual feedback
+        replayBtn.innerHTML = '<i class="fas fa-redo" style="color:#00ff7f;"></i>';
+        setTimeout(() => {
+            replayBtn.innerHTML = '<i class="fas fa-redo"></i>';
+        },300);
+    }
     
     // Event listeners
+    replayBtn.addEventListener('click',replaySong);
     playBtn.addEventListener('click', togglePlay);
     prevBtn.addEventListener('click', prevSong);
     nextBtn.addEventListener('click', nextSong);
