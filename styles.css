@@ -24,7 +24,7 @@ body {
     z-index: -1;
 }
 
-/* Background Color Themes */
+/* Color Themes */
 .background.blue {
     background: linear-gradient(135deg, #1a3c8f, #4d7cff);
 }
@@ -134,7 +134,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 15px;
 }
 
 .control-btn {
@@ -205,12 +205,12 @@ body {
     color: #5e1224;
 }
 
-/* Special effects for green theme */
+/* Theme-specific effects */
 .player-glass.green {
     box-shadow: 0 0 20px rgba(0, 255, 127, 0.3);
 }
 
-/* Enhanced text visibility for dark themes */
+/* Enhanced text visibility */
 .dark-maroon .song-title,
 .dark-maroon .song-artist,
 .dark-green .song-title,
@@ -230,15 +230,11 @@ body {
         height: 180px;
     }
     
-    .song-title {
-        font-size: 22px;
-    }
-
     .controls {
         gap: 10px;
     }
-
+    
     #replay-btn {
-        margin-right:8px;
+        margin-right: -8px;
     }
 }
