@@ -39,12 +39,10 @@ body {
     background: linear-gradient(135deg, #1b4332, #2d6a4f);
 }
 
-/* Luminous Green Background */
 .background.luminous-green {
   background: linear-gradient(135deg, #00ff7f, #00e676); /* Bright neon-to-lime gradient */
 }
 
-/* Dark Maroon Background */
 .background.dark-maroon {
   background: linear-gradient(135deg, #5e1224, #800020); /* Deep maroon gradient */
 }
