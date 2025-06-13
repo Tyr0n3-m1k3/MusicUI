@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
     {
         title: "Nokia",
         artist: "Drake, PARTYNEXTDOOR",
-        audioSrc: "nokia.mp3",  // Replace with your file
-        albumArt: "nokia.png",  // Replace with your file
+        audioSrc: "Nokia.mp3",  // Replace with your file
+        albumArt: "Nokia.png",  // Replace with your file
         color: "green"          // This will trigger the new green background
     }
 ];
