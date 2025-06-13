@@ -6,8 +6,57 @@ document.addEventListener('DOMContentLoaded', function() {
     const progressBar = document.querySelector('.progress-bar');
     const currentTimeEl = document.querySelector('.current-time');
     const durationEl = document.querySelector('.duration');
+    const songTitleEl = document.querySelector('.song-title');
+    const songArtistEl = document.querySelector('.song-artist');
+    const albumArtEl = document.getElementById('album-art');
+    const backgroundEl = document.querySelector('.background');
     
+    // Song playlist
+    const playlist = [
+        {
+            title: "COLD WATER",
+            artist: "Major Lazer, Justin Bieber, MO",
+            audioSrc: "cold-water.mp3", // Replace with your file
+            albumArt: "cold-water.jpg", // Replace with your file
+            color: "purple"
+        },
+        {
+            title: "See You Again",
+            artist: "Tyler, The Creator,Kali Uchis",
+            audioSrc: "see-you-again.mp3", // Replace with your file
+            albumArt: "see-you-again.png", // Replace with your file
+            color: "orange"
+        },
+        {
+            title: "CN Tower",
+            artist: "PARTYNEXTDOOR, Drake",
+            audioSrc: "cn-tower.mp3", // Replace with your file
+            albumArt: "cn-tower.png", // Replace with your file
+            color: "red"
+        }
+    ];
+    
+    let currentSongIndex = 0;
     let isPlaying = false;
+    
+    // Load song
+    function loadSong(index) {
+        const song = playlist[index];
+        
+        songTitleEl.textContent = song.title;
+        songArtistEl.textContent = song.artist;
+        albumArtEl.src = song.albumArt;
+        audio.src = song.audioSrc;
+        
+        // Update background color
+        backgroundEl.className = 'background ' + song.color;
+        playBtn.className = 'control-btn play-btn ' + song.color;
+        
+        if (isPlaying) {
+            audio.play();
+            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        }
+    }
     
     // Play/Pause
     function togglePlay() {
@@ -50,27 +99,30 @@ document.addEventListener('DOMContentLoaded', function() {
         audio.currentTime = (clickX / width) * duration;
     }
     
+    // Next song
+    function nextSong() {
+        currentSongIndex = (currentSongIndex + 1) % playlist.length;
+        loadSong(currentSongIndex);
+    }
+    
+    // Previous song
+    function prevSong() {
+        currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
+        loadSong(currentSongIndex);
+    }
+    
     // Event listeners
     playBtn.addEventListener('click', togglePlay);
+    prevBtn.addEventListener('click', prevSong);
+    nextBtn.addEventListener('click', nextSong);
     audio.addEventListener('timeupdate', updateProgress);
-    audio.addEventListener('ended', () => {
-        playBtn.innerHTML = '<i class="fas fa-play"></i>';
-        isPlaying = false;
-    });
+    audio.addEventListener('ended', nextSong);
     progressBar.addEventListener('click', setProgress);
     
-    // For demo purposes - these would be replaced with actual functionality
-    prevBtn.addEventListener('click', () => {
-        // Previous song logic would go here
-        console.log('Previous song');
-    });
+    // Initialize
+    loadSong(currentSongIndex);
     
-    nextBtn.addEventListener('click', () => {
-        // Next song logic would go here
-        console.log('Next song');
-    });
-    
-    // Initialize duration
+    // Initialize duration when metadata is loaded
     audio.addEventListener('loadedmetadata', () => {
         const durationMinutes = Math.floor(audio.duration / 60);
         let durationSeconds = Math.floor(audio.duration % 60);
