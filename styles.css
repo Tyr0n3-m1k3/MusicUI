@@ -39,6 +39,16 @@ body {
     background: linear-gradient(135deg, #1b4332, #2d6a4f);
 }
 
+/* Luminous Green Background */
+.background.luminous-green {
+  background: linear-gradient(135deg, #00ff7f, #00e676); /* Bright neon-to-lime gradient */
+}
+
+/* Dark Maroon Background */
+.background.dark-maroon {
+  background: linear-gradient(135deg, #5e1224, #800020); /* Deep maroon gradient */
+}
+
 .player-container {
     width: 90%;
     max-width: 350px;
@@ -168,4 +178,10 @@ body {
 }
 .play-btn.green {
     color: #1b4332;
+}
+.play-btn.luminous-green {
+  color: #00b248; /* Darker green for contrast */
+}
+.play-btn.dark-maroon {
+  color: #5e1224; /* Matches the dark maroon */
 }
