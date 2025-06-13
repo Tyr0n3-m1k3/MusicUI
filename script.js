@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const albumArtEl = document.getElementById('album-art');
     const backgroundEl = document.querySelector('.background');
     
-    // Song playlist
+    /// Updated playlist with new color names
     const playlist = [
         {
             title: "Cold Water",
@@ -39,21 +39,21 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Drake, PARTYNEXTDOOR",
             audioSrc: "Nokia.mp3",
             albumArt: "Nokia.png",
-            color: "green"
+            color: "dark-green"  // Changed from green
         }, 
         {
             title: "Hello?",
             artist: "Clairo, Rejjie Snow",
             audioSrc: "hello.mp3",
             albumArt: "hello.png",
-            color: "luminous-green"  // Changed from "bright green"
+            color: "green"  // Changed from luminous-green
         },
         {
             title: "Hello Miss Johnson",
             artist: "Jack Harlow",
             audioSrc: "hello-miss-johnson.mp3",
             albumArt: "hello-miss-johnson.png",
-            color: "dark-maroon"  // Changed from "maroon"
+            color: "dark-maroon"
         }
     ];
     
