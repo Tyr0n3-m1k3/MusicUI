@@ -2,8 +2,6 @@
 
 A sleek, responsive music player with dynamic color themes and glass-morphism design. Perfect for showcasing your favorite tracks with style.
 
-![Music Player Screenshot](https://music-ui-teal.vercel.app/screenshot.jpg)
-
 **Live Demo:** [https://music-ui-teal.vercel.app/](https://music-ui-teal.vercel.app/)
 
 ## ✨ Features
