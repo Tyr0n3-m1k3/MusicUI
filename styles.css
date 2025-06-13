@@ -24,13 +24,15 @@ body {
     z-index: -1;
 }
 
-/* Background colors for different songs */
+/* Background Color Themes */
 .background.purple {
     background: linear-gradient(135deg, #5a189a, #9d4edd);
 }
+
 .background.orange {
     background: linear-gradient(135deg, #ff6d00, #ff9e00);
 }
+
 .background.red {
     background: linear-gradient(135deg, #d00000, #dc2f02);
 }
@@ -40,11 +42,11 @@ body {
 }
 
 .background.luminous-green {
-  background: linear-gradient(135deg, #00ff7f, #00e676); /* Bright neon-to-lime gradient */
+    background: linear-gradient(135deg, #00ff7f, #00e676);
 }
 
 .background.dark-maroon {
-  background: linear-gradient(135deg, #5e1224, #800020); /* Deep maroon gradient */
+    background: linear-gradient(135deg, #5e1224, #800020);
 }
 
 .player-container {
@@ -168,18 +170,35 @@ body {
 .play-btn.purple {
     color: #5a189a;
 }
+
 .play-btn.orange {
     color: #ff6d00;
 }
+
 .play-btn.red {
     color: #d00000;
 }
+
 .play-btn.green {
     color: #1b4332;
 }
+
 .play-btn.luminous-green {
-  color: #00b248; /* Darker green for contrast */
+    color: #00b248;
+    box-shadow: 0 0 15px rgba(0, 255, 127, 0.3);
 }
+
 .play-btn.dark-maroon {
-  color: #5e1224; /* Matches the dark maroon */
+    color: #5e1224;
+}
+
+/* Special effects for luminous green */
+.player-glass.luminous-green {
+    box-shadow: 0 0 20px rgba(0, 255, 127, 0.3);
+}
+
+/* Enhanced text visibility for dark maroon */
+.dark-maroon .song-title,
+.dark-maroon .song-artist {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
