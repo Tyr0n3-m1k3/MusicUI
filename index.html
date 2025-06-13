@@ -12,15 +12,18 @@
     
     <div class="player-container">
         <div class="player-glass">
+            <!-- Song Info -->
             <div class="song-info">
-                <h1 class="song-title">Cold Water</h1>
+                <h1 class="song-title">COLD WATER</h1>
                 <p class="song-artist">Major Lazer, Justin Bieber, MO</p>
             </div>
             
+            <!-- Album Art -->
             <div class="album-art">
                 <img id="album-art" src="" alt="Album Art">
             </div>
             
+            <!-- Progress Bar -->
             <div class="progress-container">
                 <div class="progress-bar"></div>
                 <div class="time-info">
@@ -29,25 +32,32 @@
                 </div>
             </div>
             
+            <!-- Controls -->
             <div class="controls">
-                <button class="replay-btn" id="replay button">
+                <!-- New Replay Button -->
+                <button class="control-btn" id="replay-btn" title="Replay Current Song">
                     <i class="fas fa-redo"></i>
                 </button>
-                <button class="control-btn" id="prev-btn">
+                
+                <button class="control-btn" id="prev-btn" title="Previous Song">
                     <i class="fas fa-step-backward"></i>
                 </button>
-                <button class="control-btn play-btn" id="play-btn">
+                
+                <button class="control-btn play-btn" id="play-btn" title="Play/Pause">
                     <i class="fas fa-play"></i>
                 </button>
-                <button class="control-btn" id="next-btn">
+                
+                <button class="control-btn" id="next-btn" title="Next Song">
                     <i class="fas fa-step-forward"></i>
                 </button>
             </div>
         </div>
     </div>
     
+    <!-- Audio Element -->
     <audio id="audio"></audio>
     
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
